@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  appId: '9e99b56d98150dcf98c8fe1403fdbfc4 ',
+  appId: '01ff1417eeb4a81b09ac68b15958d453',
   baseUrl: 'https://',
 }
 

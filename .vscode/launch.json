@@ -1,6 +1,7 @@
 {
   "version": "0.2.0",
-  "configurations": [{
+  "configurations": [
+    {
       "name": "npm start",
       "type": "chrome",
       "request": "launch",
@@ -8,7 +9,7 @@
       "webRoot": "${workspaceRoot}",
       "runtimeArgs": [
         "--remote-debugging-port=9222"
-      ],
+        ],
       "sourceMaps": true
     },
     {
@@ -19,7 +20,7 @@
       "webRoot": "${workspaceRoot}",
       "runtimeArgs": [
         "--remote-debugging-port=9222"
-      ],
+        ],
       "sourceMaps": true
     },
     {

@@ -5,10 +5,6 @@ import { map } from 'rxjs/operators'
 import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
 
-export interface IWeatherService {
-  getCurrentWeather(city: string, country: string): Observable<ICurrentWeather>
-}
-
 interface ICurrentWeatherData {
   weather: [
     {
@@ -24,6 +20,10 @@ interface ICurrentWeatherData {
   }
   dt: number
   name: string
+}
+
+export interface IWeatherService {
+  getCurrentWeather(city: string, country: string): Observable<ICurrentWeather>
 }
 
 @Injectable({
@@ -46,17 +46,13 @@ export class WeatherService implements IWeatherService {
       city: data.name,
       country: data.sys.country,
       date: data.dt * 1000,
-      image: `https://openweathermap.org/img/w/${data.weather[0].icon}.png`,
-      temperature: this.convertKelvinToC(data.main.temp),
+      image: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+      temperature: this.convertKelvinToFahrenheit(data.main.temp),
       description: data.weather[0].description,
     }
   }
 
   private convertKelvinToFahrenheit(kelvin: number): number {
-    return (kelvin * 9) / 5 - 459.67
-  }
-
-  private convertKelvinToC(kelvin: number): number {
-    return kelvin - 273.15
+    return kelvin * 9 / 5 - 459.67
   }
 }
